@@ -1,0 +1,15 @@
+
+body {
+    background-color: rgb(226, 228, 235);
+}
+
+#current-weather {
+    background-color: white;
+}
+
+.forecast-card {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+
+}
