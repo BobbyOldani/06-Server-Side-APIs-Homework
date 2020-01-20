@@ -12,37 +12,40 @@
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
     </nav>
-    <div class="container">
-        <div class="col-sm-4" id="search-div">
-            <form>
-            <h3><label>Search For a City:</label></h3>
-            <input type="text" id="search-input"></input>
-            <button type="button" class="btn btn-info" id="search-button">
-                <i class="fas fa-search"></i></button>
-            </form>
-            <div class="city-buttons"></div>
-        </div>
-        <div class="col-sm-8">
-            <div class="row"></div>
-                <div class="col-sm-12" id="current-weather">
-                    <h2 id="current-city"><span id="current-date"></span></h2>
-                    <div id="current-city-icon"></div>
-                    <br>
-                    <p><span id="temp"></span></p>
-                    <br>
-                    <p><span id="humidity"></span></p>
-                    <br>
-                    <p><span id="wind"></span></p>
-                    <br>
-                    <p><span id="uv"></span></p>
-                </div>
+    <div class="containerr">
+        <div class="row">
+            <div class="col-sm-4" id="search-div">
+                <form>
+                <h3><label>Search For a City:</label></h3>
+                <input type="text" id="search-input"></input>
+                <button type="button" class="btn btn-info" id="search-button">
+                    <i class="fas fa-search"></i></button>
+                </form>
+                <div class="city-buttons"></div>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <h3 id="forecast-title"></h3>
-                    <div class="forecast-div">   
-                    </div>    
-                </div>
+                <div class="col-sm-7" id="current-weather">
+                    <div class="row"  id="current-weather-row">
+                        <div class="col-sm-12">
+                            <h2 id="current-city"><span id="current-date"></span></h2>
+                            <div id="current-city-icon"></div>
+                            
+                            <p><span id="temp"></span></p>
+                            
+                            <p><span id="humidity"></span></p>
+                            
+                            <p><span id="wind"></span></p>
+                            
+                            <p><span id="uv"></span></p>
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 id="forecast-title"></h3>
+                            <div class="forecast-div">   
+                            </div>    
+                        </div>
+                    </div>
+                </div>  
             </div>
         </div>
     </div>

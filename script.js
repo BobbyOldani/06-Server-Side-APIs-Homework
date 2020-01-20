@@ -5,8 +5,16 @@ let APIKey = "166a433c57516f51dfab1f7edaed8413";
 let cityButtons = $(".city-buttons");
 let forecastDiv = $(".forecast-div");
 let forecastTitle = $("#forecast-title");
+let currentWeatherDiv = $("#current-weather");
 
 getHistoryButton();
+
+
+    
+
+function showWeatherDiv() {
+    currentWeatherDiv.css("visibility", "visible")
+}
 
 //Dynamically creates search history buttons basded on my previous searches.
 function getHistoryButton() {
@@ -42,6 +50,7 @@ $.ajax({
       humidity.text("Humidity(%): " + response.main.humidity);
       wind.text("Wind Speed(MPH): " + response.wind.speed);
 
+      showWeatherDiv();
       displayDate(currentCity);
       displayIcon(currentCity, response);
       getUv(latitude, longitude);
@@ -51,7 +60,7 @@ $.ajax({
     });
 }
 
-
+//Only saves 8 most recent because I think that it will look better for styling. New entrys added to the front. Old entrys after 8 deleted.
 function saveLocal(city){
     let cities = JSON.parse((localStorage.getItem("Cities"))) || [];
     cities.unshift(city);
@@ -96,7 +105,8 @@ function historyBtnClick(event) {
         temp.text("Temp: " + response.main.temp + String.fromCharCode(176) + " F");
         humidity.text("Humidity: " + response.main.humidity + "%");
         wind.text("Wind Speed: " + response.wind.speed + " MPH");
-
+        
+        showWeatherDiv();
         getUv(latitude, longitude);
         displayDate(currentCity);
         displayIcon(currentCity, response);
@@ -132,7 +142,7 @@ function displayFiveDay(latitude, longitude) {
         console.log(response);
         for (let i = 4; i <= 36; i += 8) {
             let forecastCard = $("<div>").attr("class", "forecast-card");
-            let forecastDate = $("<h3>").attr("id", "forecast-date");
+            let forecastDate = $("<h4>").attr("id", "forecast-date");
             let forecastTemp = $("<p>").attr("id", "forecast-temp");
             let forecastHum = $("<p>").attr("id", "forecast-hum");
             let iconCode = response.list[i].weather[0].icon;
@@ -163,5 +173,22 @@ $(document).on("click", "#search-button", function(){
 });
 
 $(cityButtons).on("click", historyBtnClick);
+
+$('#seach-input').keypress(function (e) {
+    if (e.which == 13) {
+      $('#search-button').submit();
+      return false;    //<---- Add this line
+    }
+  });
+
+
+//This keeps enter from just refreshing the page and instead essentially clicks the search button.
+$('#search-input').keypress(function(event) { 
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        $("#search-button").click();
+    }
+    
+}); 
 
 });

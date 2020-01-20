@@ -1,15 +1,72 @@
+* {
+    box-sizing: border-box;
+}
 
 body {
     background-color: rgb(226, 228, 235);
 }
 
+button {
+    display: block;
+}
+
+.containerr {
+    margin: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
+#search-input {
+    width: 86%;
+    height: 35px;
+}
+
 #current-weather {
+    visibility: hidden;
     background-color: white;
+    display: inline-block;
+    width: 100%;
+}
+
+#current-weather-row {
+    border: 1px solid rgb(226, 228, 235);
+    margin: 10px;
+}
+
+#search-div {
+    margin: 10px 10px 0px 10px;
+    
+}
+
+#search-button {
+    margin-bottom: 3px;
+    background-color: blue;
+}
+.city-buttons {
+    background-color: white;
+    display: inline-block;
+    width: 100%;
+}
+
+.city-buttons button {
+    width: 100%;
+    text-align: left;
+    background-color: white;
+    border-style: none;
+    border-top: 1px solid rgb(226, 228, 235);
+    padding: 18px 5px 18px 5px;
 }
 
 .forecast-card {
-    background-color: white;
+    background-color: blue;
+    display: inline-block;
+    color: white;
     padding: 10px;
     margin: 10px;
 
 }
+
+.forecast-div {
+    display: inline-block;
+}
+
